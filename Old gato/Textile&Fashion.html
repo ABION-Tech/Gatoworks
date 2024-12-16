@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textile & Fashion | Gatoworks Horizon LTD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ff6347, #ff4500);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-form {
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      padding: 40px;
+      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Textile & Fashion Services</h1>
+      <p>From custom garments to fashion design consulting, we bring your style vision to life with premium textiles and expert craftsmanship.</p>
+    </div>
+  </header>
+
+  <!-- Textile & Fashion Services Section -->
+  <section class="content-section">
+    <div class="container text-center">
+      <h2 class="mb-5">Our Services</h2>
+      <div class="row gy-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Custom Clothing</h3>
+            <p>We create tailor-made clothing that fits your unique style and measurements. Choose from a wide range of fabrics and finishes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Textile Design</h3>
+            <p>Our textile design services include everything from pattern creation to fabric printing, bringing your designs to life.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Fashion Consulting</h3>
+            <p>Get expert advice on everything fashion-related, from styling to fashion business strategy. Our consultants help you navigate the world of fashion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Textile Solutions Section -->
+  <section class="content-section bg-light">
+    <div class="container text-center">
+      <h2 class="mb-5">Custom Textile Solutions</h2>
+      <p>We offer a range of custom textile solutions, tailored to your specific needs:</p>
+      <ul class="list-unstyled">
+        <li><strong>Branded Apparel</strong> – Perfect for corporate wear, merchandise, or fashion brands.</li>
+        <li><strong>Home Textiles</strong> – Custom-made bed linens, curtains, and upholstery for interior spaces.</li>
+        <li><strong>Event Apparel</strong> – Special designs for events, fashion shows, and performances.</li>
+        <li><strong>Accessories</strong> – Custom bags, scarves, and other fashion accessories designed to complement your style.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Request a Quote Section -->
+  <section class="quote-form">
+    <div class="container">
+      <h3 class="text-center mb-4">Get Your Custom Quote</h3>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="service" class="form-label">Service Type</label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="custom_clothing">Custom Clothing</option>
+              <option value="textile_design">Textile Design</option>
+              <option value="fashion_consulting">Fashion Consulting</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="quantity" class="form-label">Quantity/Size</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" required>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Request a Quote</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Gatoworks Horizon LTD. All Rights Reserved.</p>
+      <p>Developed by <a href="https://abionindustries.com">ABION Industries</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

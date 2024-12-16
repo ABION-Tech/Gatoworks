@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Gatoworks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        .contact-page {
+            padding-top: 60px;
+            padding-bottom: 60px;
+            background-color: #f8f9fa;
+        }
+
+        .contact-page h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #212529;
+            text-align: center;
+        }
+
+        .contact-form .form-control {
+            border-radius: 0.375rem;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info .icon {
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #212529;
+        }
+
+        .map-container {
+            height: 400px;
+            margin-top: 30px;
+            border: 2px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact-page">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-md-7">
+                    <div class="contact-form">
+                        <form id="contact-form" action="https://formsubmit.co/gatoworks@yahoo.com" method="POST">
+                            <!-- Prevent spam submissions -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <!-- Redirect after submission -->
+                            <input type="hidden" name="_next" value="https://gatoworks.com.ng/thank-you">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your full name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5"
+                                    placeholder="Write your message here" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                        <div id="contact-message" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-5 contact-info">
+                    <h4>Get in Touch</h4>
+                    <p><i class="fas fa-map-marker-alt icon"></i> Address: 123 Gatoworks St, Tech City, Country</p>
+                    <p><i class="fas fa-phone-alt icon"></i> Phone: +123 456 7890</p>
+                    <p><i class="fas fa-envelope icon"></i> Email: contact@gatoworks.com</p>
+                    <p><i class="fas fa-clock icon"></i> Business Hours: Mon-Fri, 9 AM - 6 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Map Embed -->
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;"
+            allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS and FontAwesome -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // Simple validation
+            if (name && email && message) {
+                document.getElementById("contact-message").innerHTML = '<div class="alert alert-success" role="alert">Thank you, ' + name + '! Your message has been sent.</div>';
+            } else {
+                document.getElementById("contact-message").innerHTML = '<div class="alert alert-danger" role="alert">Please fill in all fields.</div>';
+            }
+
+            // Clear the form
+            document.getElementById("contact-form").reset();
+        });
+    </script>
+</body>
+
+</html>

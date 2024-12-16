@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printing Services | Gatoworks Horizon LTD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #2196f3, #42a5f5);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-form {
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      padding: 40px;
+      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Premium Printing Services</h1>
+      <p>Your one-stop shop for all your printing needs, from business cards to banners and custom prints.</p>
+    </div>
+  </header>
+
+  <!-- Printing Services Section -->
+  <section class="content-section">
+    <div class="container text-center">
+      <h2 class="mb-5">Our Printing Services</h2>
+      <div class="row gy-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Business Cards</h3>
+            <p>High-quality business cards that make a lasting impression. Choose from a variety of designs, finishes, and customizations.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Brochures & Flyers</h3>
+            <p>Create impactful brochures and flyers for your business or event. Full-color printing and professional layouts available.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Banners & Posters</h3>
+            <p>Perfect for events, promotions, or display purposes. We print large format banners and posters with vibrant colors and quality materials.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Printing Solutions Section -->
+  <section class="content-section bg-light">
+    <div class="container text-center">
+      <h2 class="mb-5">Custom Printing Solutions</h2>
+      <p>We offer a range of custom printing options to meet your specific needs, including:</p>
+      <ul class="list-unstyled">
+        <li><strong>Custom T-Shirts</strong> – Print your unique designs on high-quality fabric.</li>
+        <li><strong>Packaging</strong> – Custom printed boxes and packaging to enhance your brand’s look.</li>
+        <li><strong>Stickers & Labels</strong> – Make your products stand out with personalized stickers and labels.</li>
+        <li><strong>Calendars & Stationery</strong> – Add a personal touch to your office or home with custom calendars and stationery.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Request a Quote Section -->
+  <section class="quote-form">
+    <div class="container">
+      <h3 class="text-center mb-4">Get Your Custom Quote</h3>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="service" class="form-label">Service Type</label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="business_cards">Business Cards</option>
+              <option value="brochures_flyers">Brochures & Flyers</option>
+              <option value="banners_posters">Banners & Posters</option>
+              <option value="custom_tshirts">Custom T-Shirts</option>
+              <option value="stickers_labels">Stickers & Labels</option>
+              <option value="packaging">Packaging</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" required>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Request a Quote</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Gatoworks Horizon LTD. All Rights Reserved.</p>
+      <p>Developed by <a href="https://abionindustries.com">ABION Industries</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

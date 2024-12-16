@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Carousel and Navbar</title>
+
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 1rem;
+            color: #222;
+        }
+
+        p {
+            margin: 0 0 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar .nav-links li a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: #007bff;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            display: none;
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .carousel-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+        }
+
+        .carousel-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel .btn {
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .carousel-prev {
+            left: 1rem;
+        }
+
+        .carousel-next {
+            right: 1rem;
+        }
+
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card .btn {
+            margin-top: 1rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 4rem 0;
+            text-align: center;
+            background: #007bff;
+            color: #fff;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            width: 250px;
+            max-width: 80%;
+            border: none;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+        }
+
+        .newsletter button {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Gatoworks Horizon</a>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <div class="carousel">
+        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x600');">
+            <div class="carousel-content">
+                <h1>Where Creativity Meets Innovation</h1>
+                <p>Transforming your ideas into reality with expertise and passion.</p>
+                <a href="#services" class="btn">Explore Our Services</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x600');">
+            <div class="carousel-content">
+                <h1>Cutting-Edge Design Solutions</h1>
+                <p>Innovative approaches to art, fashion, and interior design.</p>
+                <a href="#portfolio" class="btn">View Our Portfolio</a>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x600');">
+            <div class="carousel-content">
+                <h1>Personalized Creative Experiences</h1>
+                <p>Tailored services that bring your unique vision to life.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+        <button class="carousel-prev">&#10094;</button>
+        <button class="carousel-next">&#10095;</button>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Art Consult</h3>
+                    <p>Expert guidance on art selection and customization to enhance your space.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Textile & Fashion Design</h3>
+                    <p>Bespoke designs for fabrics, clothing, and accessories that reflect your style.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Home Décor</h3>
+                    <p>Transform your living spaces with innovative interior design solutions.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>Printing</h3>
+                    <p>High-quality printing services for all your personal and professional needs.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <form id="newsletter-form">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        showSlide(currentSlide);
+
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletter-form');
+        const emailInput = document.getElementById('email');
+        const message = document.getElementById('message');
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (emailInput.value) {
+                message.textContent = `Thank you for subscribing, ${emailInput.value}!`;
+                emailInput.value = '';
+            } else {
+                message.textContent = 'Please enter a valid email address.';
+            }
+        });
+    </script>
+</body>
+
+</html>

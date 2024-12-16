@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Consult | Gatoworks Horizon LTD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ff6f61, #ff7043);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-form {
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      padding: 40px;
+      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Art Consultation</h1>
+      <p>Transform your space with personalized art that tells your unique story.</p>
+    </div>
+  </header>
+
+  <!-- Service Overview Section -->
+  <section class="content-section">
+    <div class="container text-center">
+      <h2 class="mb-5">Our Art Consultation Services</h2>
+      <div class="row gy-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Personalized Art Selection</h3>
+            <p>We help you choose art pieces that resonate with your personal style and the ambiance of your space. Whether it’s contemporary, abstract, or classical, we curate art that fits your vision.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Custom Art Designs</h3>
+            <p>If you can’t find exactly what you’re looking for, we can design bespoke pieces just for you. Our artists create custom art to match the specific theme, color palette, and mood of your space.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Art Placement & Installation</h3>
+            <p>Choosing the right place for your art is crucial. We guide you on optimal placement to ensure your art makes the desired impact. Our team also offers professional installation services for a seamless experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request a Quote Section -->
+  <section class="quote-form">
+    <div class="container">
+      <h3 class="text-center mb-4">Request a Personalized Quote</h3>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Get Your Quote</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Gatoworks Horizon LTD. All Rights Reserved.</p>
+      <p>Developed by <a href="https://abionindustries.com">ABION Industries</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

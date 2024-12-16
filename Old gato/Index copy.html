@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatoworks Horizon LTD | Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script defer src="scripts.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #1E90FF !important;
+    }
+    .nav-link {
+      color: #333 !important;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: #1E90FF !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1E90FF, #00C6FF);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+    }
+    .cta-btn {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      color: white;
+      background-color: #FF4500;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background-color: #FF6347;
+    }
+
+    /* Services Section */
+    .services-overview {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #f8f9fa;
+    }
+    .service-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .footer-links a {
+      color: #1E90FF;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Gatoworks Horizon LTD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Where Creativity Meets Innovation</h1>
+      <p>Transforming your ideas into reality with expertise and passion.</p>
+      <a href="services.html" class="cta-btn">Explore Our Services</a>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="services-overview">
+    <div class="container">
+      <h2 class="mb-4">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card service-card">
+            <div class="card-body">
+              <h5 class="card-title">Art Consult</h5>
+              <p class="card-text">Expert guidance on art selection and customization to enhance your space.</p>
+              <a href="services/art-consult.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card service-card">
+            <div class="card-body">
+              <h5 class="card-title">Textile & Fashion Design</h5>
+              <p class="card-text">Bespoke designs for fabrics, clothing, and accessories that reflect your style.</p>
+              <a href="services/textile-fashion.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card service-card">
+            <div class="card-body">
+              <h5 class="card-title">Home Décor</h5>
+              <p class="card-text">Transform your living spaces with innovative interior design solutions.</p>
+              <a href="services/home-decor.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card service-card">
+            <div class="card-body">
+              <h5 class="card-title">Printing</h5>
+              <p class="card-text">High-quality printing services for all your personal and professional needs.</p>
+              <a href="services/printing.html" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Gatoworks Horizon LTD. All Rights Reserved.</p>
+      <p>Powered by <a href="https://abionindustries.com">ABION Industries</a></p>
+      <ul class="footer-links list-inline">
+        <li class="list-inline-item"><a href="about.html">About Us</a></li>
+        <li class="list-inline-item"><a href="services.html">Services</a></li>
+        <li class="list-inline-item"><a href="portfolio.html">Portfolio</a></li>
+        <li class="list-inline-item"><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textile & Fashion | Gatoworks Horizon LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ff5c8d, #ff8364);
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      border-bottom: 5px solid #ff8364;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 20px;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 60px 20px;
+    }
+
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #2e2e2e;
+      margin-bottom: 40px;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #ff5c8d;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    /* Quote Form */
+    .quote-form {
+      background-color: #ffffff;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      margin-top: 60px;
+    }
+
+    .quote-form h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .form-control, .form-select, .btn {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus, .btn:hover {
+      border-color: #ff5c8d;
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 92, 141, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #f8f8f8;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: #ff5c8d;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .service-card {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Textile & Fashion Services</h1>
+      <p>Transform your style vision with custom creations, expert textile design, and personalized fashion consulting.</p>
+    </div>
+  </header>
+
+  <!-- Textile & Fashion Services Section -->
+  <section class="content-section">
+    <div class="container text-center">
+      <h2 class="section-heading">Our Services</h2>
+      <div class="row gy-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Custom Clothing</h3>
+            <p>Tailored garments that speak to your style and fit. Choose from luxurious fabrics and finishes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Textile Design</h3>
+            <p>Bring your vision to life with expert textile designs—from unique patterns to custom prints.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <h3>Fashion Consulting</h3>
+            <p>Get personalized fashion advice to elevate your style, branding, or fashion business strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="quote-form">
+    <div class="container">
+      <h3 class="text-center">Request a Quote</h3>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="service" class="form-label">Service Type</label>
+            <select class="form-select" id="service" name="service" required>
+              <option value="custom_clothing">Custom Clothing</option>
+              <option value="textile_design">Textile Design</option>
+              <option value="fashion_consulting">Fashion Consulting</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="quantity" class="form-label">Quantity/Size</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" required>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-lg" style="background-color: #ff5c8d; color: #fff;">Request a Quote</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Gatoworks Horizon LTD. All Rights Reserved.</p>
+    <p>Developed by <a href="https://abionindustries.com">ABION Industries</a></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
