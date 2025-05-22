@@ -38,7 +38,7 @@ body {
 
 /* Set carousel height for different screen sizes */
 .hero {
-  margin-top: 40px;
+  margin-top: 70px;
   height: 60vh;
   /* Desktop default height */
 }
@@ -197,6 +197,9 @@ footer {
   background-color: #212529;
   color: #fff;
   padding: 50px 0;
+}
+.px-50 {
+  padding-left: 50px;
 }
 
 .image-container {
