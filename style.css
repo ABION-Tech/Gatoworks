@@ -201,7 +201,9 @@ footer {
 .px-50 {
   padding-left: 50px;
 }
-
+.contact {
+  padding-left: Auto;
+}
 .image-container {
   width: 100%;
   /* Adjust width as needed */
