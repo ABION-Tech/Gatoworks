@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /admin.html
+Disallow: /activity.html
 Sitemap: https://gatoworks.com.ng/sitemap.xml

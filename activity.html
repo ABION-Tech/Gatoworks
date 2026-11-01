@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Activity | Gatoworks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15131f;--sun:#f2a900;--bar:#b97c00;--bg:#f4f4f0;--card:#fcfcfb;--line:#e4e2dc;--t1:#15131f;--t2:#5d5b66;--t3:#8d8a99;--bad:#c4373c;--f1:'Bricolage Grotesque',system-ui,sans-serif;--f2:'Hanken Grotesk',system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;font:400 15px/1.5 var(--f2);background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}button,select{font:inherit;cursor:pointer}
+#gate{max-width:380px;margin:12vh auto;background:#fff;padding:2rem;border-radius:14px;box-shadow:0 10px 40px #15131f14}
+#gate h1{font:800 1.8rem var(--f1);letter-spacing:-.03em;margin:0 0 .2rem}#gate p{margin:0 0 1.2rem;color:var(--t2)}
+#gate input{width:100%;padding:.75rem .9rem;border:1.5px solid #d9d7e0;border-radius:8px;font:inherit;margin-bottom:.6rem}
+#gate button{width:100%;padding:.8rem;border:0;border-radius:99px;background:var(--sun);color:var(--ink);font-weight:700}
+#gate #ggb{background:#fff;border:1.5px solid #d9d7e0;margin-top:.6rem}#ge{color:var(--bad);font-size:.85rem;margin-top:.6rem}
+.top{background:var(--ink);color:#fff;position:sticky;top:0;z-index:10}
+.top .in{max-width:1180px;margin:auto;padding:.7rem 1rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.logo{font:800 1.25rem var(--f1);letter-spacing:-.03em}.logo i{color:var(--sun);font-style:normal}.logo small{font:600 .68rem var(--f2);letter-spacing:.08em;text-transform:uppercase;color:#8d8a99;margin-left:.5rem}
+.seg{display:flex;background:#221f2e;border-radius:99px;padding:2px;margin-left:auto}.seg button{border:0;background:none;color:#bdbac8;padding:.32rem .75rem;border-radius:99px;font-size:.84rem;font-weight:600}.seg button.on{background:#fff;color:var(--ink)}
+.ghost{background:none;border:1px solid #2a2736;color:#e8e6ee;padding:.36rem .85rem;border-radius:99px;font-size:.84rem;font-weight:600;text-decoration:none}
+main{max-width:1180px;margin:auto;padding:1.2rem 1rem 3rem}
+h2{font:800 1.25rem var(--f1);letter-spacing:-.02em;margin:0 0 .2rem}.sub{color:var(--t2);font-size:.86rem;margin:0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:.8rem}
+.kpi b{display:block;font:800 2rem/1.1 var(--f1);letter-spacing:-.02em;font-variant-numeric:tabular-nums}.kpi span{color:var(--t2);font-size:.86rem;font-weight:600}.kpi small{display:block;color:var(--t3);font-size:.78rem;margin-top:.2rem}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:.8rem;margin-bottom:.8rem}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.8rem}
+.chart{position:relative;height:220px;margin-top:.6rem}
+.chart svg{width:100%;height:100%;display:block;overflow:visible}
+.chart .ax{font-size:11px;fill:var(--t3)}.chart .gl{stroke:#ecebe6;stroke-width:1}
+.chart .b{fill:var(--bar)}.chart rect.hit{fill:transparent}.chart g:hover .b,.chart g:focus .b{fill:#8c5e00}.chart g{outline:none}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;border-radius:8px;padding:.45rem .65rem;font-size:.8rem;white-space:nowrap;transform:translate(-50%,-110%);display:none;z-index:5}
+.tip b{font-size:1rem;display:block}
+.rows{list-style:none;margin:.4rem 0 0;padding:0}.rows li{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;padding:.42rem 0;border-bottom:1px solid #efeee9;font-size:.9rem}
+.rows li:last-child{border:0}.rows .v{font-weight:700;font-variant-numeric:tabular-nums}.rows i{grid-column:1/-1;height:4px;border-radius:4px;background:#efeee9;display:block}.rows i s{display:block;height:100%;border-radius:4px;background:var(--bar)}
+.empty{color:var(--t3);font-size:.88rem;padding:.6rem 0}
+details.tbl summary{cursor:pointer;color:var(--t2);font-size:.82rem;margin-top:.6rem}details.tbl table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:.4rem}details.tbl td,details.tbl th{text-align:left;padding:.25rem .4rem;border-bottom:1px solid #efeee9}
+.feed{list-style:none;margin:.3rem 0 0;padding:0;max-height:420px;overflow:auto}.feed li{display:flex;gap:.7rem;padding:.45rem 0;border-bottom:1px solid #efeee9;font-size:.86rem;align-items:baseline}
+.feed time{color:var(--t3);font-size:.78rem;min-width:92px;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.1rem .45rem;border-radius:99px;background:#efeee9;color:var(--t2)}
+.tag.whatsapp{background:#ddf6e6;color:#156b37}.tag.call,.tag.email{background:#e5ecfb;color:#244a9c}.tag.text{background:#efeee9}.tag.photo{background:#fdf0d5;color:#7a5200}.tag.colour{background:#f6e3f0;color:#7d2864}.tag.reset{background:#fbe4e4;color:#9a2b2f}
+.chg{list-style:none;margin:.3rem 0 0;padding:0}.chg li{padding:.8rem 0;border-bottom:1px solid #efeee9;display:grid;grid-template-columns:150px 1fr;gap:.3rem 1rem}
+.chg .meta{font-size:.8rem;color:var(--t3);line-height:1.45}.chg .meta b{display:block;color:var(--t1);font-size:.86rem}
+.chg .what{font-size:.82rem;color:var(--t2);margin-bottom:.3rem}.chg .what .tag{margin-right:.35rem}
+.diff{display:grid;grid-template-columns:1fr auto 1fr;gap:.6rem;align-items:center}.diff>div{background:#f6f5f1;border-radius:8px;padding:.45rem .6rem;font-size:.88rem;min-width:0;overflow-wrap:anywhere}
+.diff .old{color:var(--t2);text-decoration:line-through;text-decoration-color:#c9c6bf}.diff .arr{color:var(--t3)}
+.diff img{max-width:100%;max-height:110px;border-radius:6px;display:block}.sw{display:inline-block;width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-right:.4rem;border:1px solid #0002}
+.filters{display:flex;gap:.35rem;margin:.3rem 0 .4rem;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:.25rem .7rem;font-size:.8rem;font-weight:600;color:var(--t2)}.filters button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.more{margin-top:.6rem;border:1px solid var(--line);background:#fff;border-radius:99px;padding:.4rem 1rem;font-weight:600;font-size:.84rem}
+.note{color:var(--t3);font-size:.8rem;margin-top:1.4rem;text-align:center}
+#err{background:#fbe4e4;color:#9a2b2f;border-radius:10px;padding:.6rem .9rem;margin-bottom:.8rem;font-size:.88rem}
+@media(max-width:900px){.kpis{grid-template-columns:1fr 1fr}.grid,.grid3{grid-template-columns:1fr}.chg li{grid-template-columns:1fr}.seg{margin-left:0;order:3;width:100%;justify-content:space-between}}
+@media(max-width:520px){.diff{grid-template-columns:1fr}.diff .arr{transform:rotate(90deg);justify-self:start}.kpi b{font-size:1.6rem}}
+</style></head>
+<body>
+<div id="gate"><h1>Activity</h1><p>Private. Only the site owner can see this.</p><form id="gf"><input id="em" type="email" placeholder="Email" autocomplete="username" required><input id="pw" type="password" placeholder="Password" autocomplete="current-password" required><button>Sign in</button></form><button type="button" id="ggb" hidden>Sign in with Google</button><div id="ge"></div></div>
+
+<div id="app" hidden>
+ <div class="top"><div class="in">
+  <div class="logo">Gato<i>works</i><small>Activity</small></div>
+  <div class="seg" id="rng"><button data-d="1">Today</button><button data-d="7" class="on">7 days</button><button data-d="30">30 days</button><button data-d="90">90 days</button></div>
+  <button class="ghost" id="rf">Refresh</button><a class="ghost" href="admin.html">Editor</a><button class="ghost" id="out">Sign out</button>
+ </div></div>
+ <main>
+  <div id="err" hidden></div>
+  <div class="kpis">
+   <div class="card kpi"><span>Page views</span><b id="k1">–</b><small id="k1s"></small></div>
+   <div class="card kpi"><span>Visitors</span><b id="k2">–</b><small>different browsers</small></div>
+   <div class="card kpi"><span>WhatsApp taps</span><b id="k3">–</b><small>people who opened a chat</small></div>
+   <div class="card kpi"><span>Calls &amp; emails</span><b id="k4">–</b><small>taps on a number or email</small></div>
+  </div>
+  <div class="grid">
+   <div class="card"><h2>Page views per day</h2><p class="sub" id="csub">Hover a bar for the day's numbers.</p><div class="chart" id="chart"><div class="tip" id="tip"></div></div>
+    <details class="tbl"><summary>Show as table</summary><table><thead><tr><th>Day</th><th>Views</th><th>Visitors</th></tr></thead><tbody id="ctb"></tbody></table></details></div>
+   <div class="card"><h2>Latest visits</h2><p class="sub">Newest first, Abuja time.</p><ul class="feed" id="feed"></ul></div>
+  </div>
+  <div class="grid3">
+   <div class="card"><h2>Top pages</h2><ul class="rows" id="pages"></ul></div>
+   <div class="card"><h2>Where they came from</h2><ul class="rows" id="refs"></ul></div>
+   <div class="card"><h2>Devices</h2><ul class="rows" id="devs"></ul><h2 style="margin-top:1.2rem">Contact taps by page</h2><ul class="rows" id="taps"></ul></div>
+  </div>
+  <div class="card"><h2>Admin changes</h2><p class="sub">Every edit made in the editor: who, when, and what it was before. Newest first.</p>
+   <div class="filters" id="cf"><button data-a="" class="on">All</button><button data-a="text">Text</button><button data-a="photo">Photos</button><button data-a="colour">Colours</button></div>
+   <ul class="chg" id="chg"></ul><button class="more" id="more" hidden>Show more</button></div>
+  <p class="note">Your own browser is not counted once you sign in here or in the editor. No names or IP addresses are stored for visitors.</p>
+ </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s),G=window.GW||{},TZ='Africa/Lagos';
+const sb=supabase.createClient(G.url,G.key);
+const PAGES={'index.html':'Home','gallery.html':'Gallery','shop.html':'Shop','art-consult.html':'Art consult','textile.html':'Textile & fashion','decor.html':'Home décor','printing.html':'Printing','about.html':'About','faq.html':'FAQ','contact.html':'Contact','policies.html':'Policies','thank-you.html':'Thank you'};
+const KEYP={index:'Home',gallery:'Gallery',shop:'Shop',art:'Art consult',textile:'Textile & fashion',decor:'Home décor',printing:'Printing',about:'About',faq:'FAQ',contact:'Contact',policies:'Policies',g:'Menu & footer (all pages)',s:'Service pages (shared)'};
+const THEME={site:'Main site',art:'Art consult page',textile:'Textile page',decor:'Décor page',print:'Printing page'};
+const VAR={'--sun':'Accent','--ink':'Dark','--wall':'Background','--txt':'Text','--lite':'Text on dark','--mute':'Soft text','--f1':'Headings font','--f2':'Body font','--fs':'Text size'};
+const KIND={whatsapp:'WhatsApp',call:'Call',email:'Email',map:'Map',social:'Social'};
+const el=(t,c,txt)=>{const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e};
+const fmtN=n=>n.toLocaleString('en-NG');
+const dayKey=d=>new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
+const fmtDay=k=>new Date(k+'T12:00:00Z').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+const fmtTime=d=>new Date(d).toLocaleString('en-GB',{timeZone:TZ,day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+const plain=h=>{if(h==null)return'';const d=new DOMParser().parseFromString('<body>'+h,'text/html');return d.body.textContent.trim()};
+let days=7,V=[],L=[],lf='',shown=30;
+
+/* ---------- sign in (owner only) ---------- */
+async function enter(sess){if(!sess){$('#gate').hidden=false;$('#app').hidden=true;return}
+ const{data,error}=await sb.rpc('is_gw_owner');
+ if(error||data!==true){await sb.auth.signOut();$('#gate').hidden=false;$('#app').hidden=true;$('#ge').textContent='This page is private to the site owner.';return}
+ try{localStorage.gwMe=1}catch(e){}
+ $('#gate').hidden=true;$('#app').hidden=false;load()}
+sb.auth.getSession().then(({data})=>enter(data.session));
+$('#gf').onsubmit=async e=>{e.preventDefault();$('#ge').textContent='';const{error}=await sb.auth.signInWithPassword({email:$('#em').value,password:$('#pw').value});if(error)$('#ge').textContent='Sign in failed: '+error.message;else enter((await sb.auth.getSession()).data.session)};
+if(G.google)$('#ggb').hidden=false;
+$('#ggb').onclick=()=>sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});
+$('#out').onclick=async()=>{await sb.auth.signOut();location.reload()};
+$('#rng').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...$('#rng').children].forEach(x=>x.classList.toggle('on',x===b));days=+b.dataset.d;load()};
+$('#rf').onclick=()=>load();
+$('#cf').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...$('#cf').children].forEach(x=>x.classList.toggle('on',x===b));lf=b.dataset.a;shown=30;drawLog()};
+$('#more').onclick=()=>{shown+=30;drawLog()};
+
+/* ---------- data ---------- */
+function since(){const k=dayKey(new Date());const start=new Date(k+'T00:00:00+01:00');start.setDate(start.getDate()-(days-1));return start}
+async function all(q){const out=[];for(let f=0;f<50000;f+=1000){const{data,error}=await q().range(f,f+999);if(error)throw error;out.push(...data);if(data.length<1000)break}return out}
+async function load(){
+ $('#err').hidden=true;$('#rf').textContent='Loading…';
+ try{const s=since().toISOString();
+  [V,L]=await Promise.all([all(()=>sb.from('site_visits').select('at,kind,page,ref,device,vid').gte('at',s).order('at',{ascending:false})),
+   all(()=>sb.from('admin_log').select('at,email,area,action,key,old_value,new_value').order('at',{ascending:false}).limit(2000))]);
+  draw();drawLog()}
+ catch(e){$('#err').hidden=false;$('#err').textContent='Could not load activity: '+(e.message||e)}
+ $('#rf').textContent='Refresh'}
+
+/* ---------- visits ---------- */
+function count(arr,f){const m=new Map;arr.forEach(x=>{const k=f(x);if(k)m.set(k,(m.get(k)||0)+1)});return[...m].sort((a,b)=>b[1]-a[1])}
+function rows(id,list,empty,label){const u=$(id);u.replaceChildren();if(!list.length){u.append(el('li','empty',empty));return}
+ const max=list[0][1];list.slice(0,8).forEach(([k,n])=>{const li=el('li');li.append(el('span',null,label?label(k):k),el('span','v',fmtN(n)));const i=el('i'),s=el('s');s.style.width=Math.max(3,n/max*100)+'%';i.append(s);li.append(i);u.append(li)})}
+function draw(){
+ const views=V.filter(v=>v.kind==='view'),taps=V.filter(v=>v.kind!=='view');
+ $('#k1').textContent=fmtN(views.length);$('#k2').textContent=fmtN(new Set(views.map(v=>v.vid).filter(Boolean)).size);
+ $('#k3').textContent=fmtN(taps.filter(v=>v.kind==='whatsapp').length);$('#k4').textContent=fmtN(taps.filter(v=>v.kind==='call'||v.kind==='email').length);
+ const vpv=views.length&&new Set(views.map(v=>v.vid)).size?(views.length/new Set(views.map(v=>v.vid)).size).toFixed(1):0;$('#k1s').textContent=vpv?vpv+' pages per visitor':'';
+ rows('#pages',count(views,v=>v.page),'No visits yet in this period.',k=>PAGES[k]||k);
+ rows('#refs',count(views,v=>v.ref||'Direct / typed in'),'No visits yet.');
+ rows('#devs',count(views,v=>v.device),'No visits yet.',k=>k[0].toUpperCase()+k.slice(1));
+ rows('#taps',count(taps,v=>(KIND[v.kind]||v.kind)+' · '+(PAGES[v.page]||v.page)),'No taps yet.');
+ // per-day buckets (Abuja time)
+ const keys=[];const st=since();for(let i=0;i<days;i++){const d=new Date(st);d.setDate(st.getDate()+i);keys.push(dayKey(new Date(d.getTime()+3600e3)))}
+ const per=Object.fromEntries(keys.map(k=>[k,{v:0,u:new Set}]));views.forEach(v=>{const k=dayKey(new Date(v.at));if(per[k]){per[k].v++;per[k].u.add(v.vid)}});
+ chart(keys.map(k=>({k,v:per[k].v,u:per[k].u.size})));
+ const tb=$('#ctb');tb.replaceChildren();keys.slice().reverse().forEach(k=>{const tr=el('tr');tr.append(el('td',null,fmtDay(k)),el('td',null,fmtN(per[k].v)),el('td',null,fmtN(per[k].u.size)));tb.append(tr)});
+ const f=$('#feed');f.replaceChildren();if(!V.length)f.append(el('li','empty','No visits yet. They appear here within seconds of someone opening the site.'));
+ V.slice(0,40).forEach(v=>{const li=el('li');li.append(el('time',null,fmtTime(v.at)));const s=el('span');
+  if(v.kind!=='view'){s.append(el('span','tag '+v.kind,KIND[v.kind]||v.kind),document.createTextNode(' on '+(PAGES[v.page]||v.page)))}
+  else s.textContent=(PAGES[v.page]||v.page)+' · '+(v.device||'')+(v.ref?' · from '+v.ref:'');li.append(s);f.append(li)})}
+function chart(d){
+ const box=$('#chart'),tip=$('#tip');box.querySelectorAll('svg').forEach(s=>s.remove());
+ const W=box.clientWidth||600,H=220,pl=30,pb=22,pt=8,iw=W-pl,ih=H-pb-pt,max=Math.max(4,...d.map(x=>x.v)),step=Math.ceil(max/4),top=step*4;
+ const NS='http://www.w3.org/2000/svg',svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('role','img');svg.setAttribute('aria-label','Page views per day');
+ const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+ for(let i=0;i<=4;i++){const y=pt+ih-ih*i/4;svg.append(mk('line',{x1:pl,x2:W,y1:y,y2:y,class:'gl'}));const t=mk('text',{x:pl-6,y:y+4,'text-anchor':'end',class:'ax'});t.textContent=fmtN(step*i);svg.append(t)}
+ const bw=iw/d.length,gap=Math.min(2+bw*.25,10),every=Math.ceil(d.length/(W<500?5:9));
+ d.forEach((x,i)=>{const h=x.v/top*ih,X=pl+i*bw+gap/2,w=Math.max(2,bw-gap),y=pt+ih-h,g=mk('g',{tabindex:0});
+  g.append(mk('rect',{class:'hit',x:pl+i*bw,y:pt,width:bw,height:ih}));
+  if(x.v){const r=Math.min(4,w/2,h);g.append(mk('path',{class:'b',d:`M${X},${pt+ih}V${y+r}Q${X},${y} ${X+r},${y}H${X+w-r}Q${X+w},${y} ${X+w},${y+r}V${pt+ih}Z`,fill:'var(--bar)'}))}
+  const show=()=>{tip.replaceChildren(el('b',null,fmtN(x.v)+' views'),document.createTextNode(fmtN(x.u)+' visitors · '+fmtDay(x.k)));tip.style.display='block';tip.style.left=Math.min(Math.max(X+w/2,70),W-70)+'px';tip.style.top=(pt+ih-Math.max(h,10))+'px'};
+  g.addEventListener('pointerenter',show);g.addEventListener('focus',show);g.addEventListener('pointerleave',()=>tip.style.display='none');g.addEventListener('blur',()=>tip.style.display='none');
+  svg.append(g);
+  if(i%every===0||i===d.length-1&&d.length<=9){const t=mk('text',{x:X+w/2,y:H-4,'text-anchor':'middle',class:'ax'});t.textContent=d.length===1?'Today':fmtDay(x.k).replace(/^\w+ /,'');svg.append(t)}});
+ box.append(svg);$('#csub').textContent=d.length===1?'Today so far.':'Hover a bar for the day\'s numbers.'}
+addEventListener('resize',()=>{clearTimeout(draw.t);draw.t=setTimeout(()=>V&&$('#app').hidden===false&&draw(),200)});
+
+/* ---------- admin log ---------- */
+function where(r){if(r.area==='colour'){const[,sc,v]=r.key.split('.');return(VAR[v]||v)+' · '+(THEME[sc]||sc)}
+ if(r.area==='photo'){const f=r.key.split('/').pop();return'Photo '+f}
+ const p=r.key.split('.')[0];return KEYP[p]||p}
+function val(r,v,isOld){const d=el('div',isOld?'old':'new');
+ if(v==null){d.textContent=isOld?(r.action==='reset'?'—':'Original'):'Original';d.style.textDecoration='none';return d}
+ if(r.area==='photo'){const i=el('img');i.src=v;i.alt='';i.loading='lazy';d.append(i);d.style.textDecoration='none';if(isOld)d.style.opacity=.6;return d}
+ if(r.area==='colour'&&/^#[0-9a-f]{6}$/i.test(v)){const s=el('span','sw');s.style.background=v;d.append(s,document.createTextNode(v.toUpperCase()));return d}
+ const t=plain(v);d.textContent=t.length>240?t.slice(0,240)+'…':t||'(empty)';return d}
+function drawLog(){const u=$('#chg');u.replaceChildren();const list=L.filter(r=>!lf||r.area===lf);
+ if(!list.length){u.append(el('li','empty',L.length?'No changes of this type.':'No changes logged yet. Edits made in the editor will show up here.'));$('#more').hidden=true;return}
+ list.slice(0,shown).forEach(r=>{const li=el('li'),m=el('div','meta');m.append(el('b',null,fmtTime(r.at)),document.createTextNode(r.email||'unknown'));
+  const body=el('div'),w=el('div','what');w.append(el('span','tag '+(r.action==='reset'?'reset':r.area),r.action==='reset'?'Reset':r.area),document.createTextNode(where(r)));
+  const df=el('div','diff');df.append(val(r,r.old_value,true),el('span','arr','→'),val(r,r.new_value,false));body.append(w,df);li.append(m,body);u.append(li)});
+ $('#more').hidden=list.length<=shown}
+</script></body></html>

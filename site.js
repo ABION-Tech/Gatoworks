@@ -58,5 +58,17 @@ G.ready=Promise.all([fetch('images.json').then(r=>r.ok?r.json():{}).catch(()=>({
  return{images:M,text:t||{}}});
 G.paint=paint;G.readTheme=readTheme;G.cssVal=cssVal;G.FONTS=FONTS;
 window.GW=G;
+// visit tracking (private: only the owner can read it). Skips the editor preview, local testing and admins' own browsers. No IPs or names are stored.
+(()=>{let me=0;try{me=localStorage.gwMe}catch(e){}if(!G.url||G.local||me||window.top!==window||navigator.webdriver)return;
+ let vid;try{vid=localStorage.gwVid||(localStorage.gwVid=Math.random().toString(36).slice(2,12)+Date.now().toString(36))}catch(e){vid=''}
+ const w=Math.min(screen.width,innerWidth),dev=w<700?'mobile':w<1100?'tablet':'desktop';
+ const page=(location.pathname.replace(/^\/+/,'')||'index.html').slice(0,120);
+ let ref='';try{const r=document.referrer&&new URL(document.referrer);if(r&&r.host!==location.host)ref=r.host.replace(/^www\./,'')}catch(e){}
+ const qs=new URLSearchParams(location.search),src=qs.get('utm_source')||qs.get('ref');if(src)ref=(ref?ref+' · ':'')+src;
+ const send=(kind)=>{try{fetch(G.url+'/rest/v1/site_visits',{method:'POST',keepalive:true,headers:{apikey:G.key,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({kind,page,ref:ref.slice(0,200)||null,device:dev,vid,lang:(navigator.language||'').slice(0,20)})}).catch(()=>{})}catch(e){}};
+ send('view');
+ document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href]');if(!a)return;const h=a.getAttribute('href');
+  const k=/wa\.me|whatsapp/i.test(h)?'whatsapp':/^tel:/i.test(h)?'call':/^mailto:/i.test(h)?'email':/maps\.|goo\.gl\/maps|maps\.app/i.test(h)?'map':/instagram|tiktok|facebook|twitter|x\.com|linkedin/i.test(h)?'social':null;if(k)send(k)},true);
+})();
 A('img[loading=lazy]').forEach(i=>{if(!i.complete){i.classList.add('fade');i.addEventListener('load',()=>i.classList.add('ok'));i.addEventListener('error',()=>i.classList.add('ok'))}});
 })();

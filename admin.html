@@ -136,7 +136,7 @@ addEventListener('beforeunload',e=>{if(pending>0){e.preventDefault();e.returnVal
 function show(on){$('#gate').hidden=on;$('#app').hidden=!on;document.body.style.display=on?'block':'flex';if(on)start()}
 // only listed admins get in (any sign-in method); others are signed straight back out
 async function enter(sess){if(!sess)return show(false);if(G.local)return show(true);
-  const{data,error}=await sb.rpc('is_gw_admin');if(error||data!==true){await sb.auth.signOut();show(false);$('#ge').textContent='This account is not allowed to edit the site. Use one of the admin emails.';return}show(true)}
+  const{data,error}=await sb.rpc('is_gw_admin');if(error||data!==true){await sb.auth.signOut();show(false);$('#ge').textContent='This account is not allowed to edit the site. Use one of the admin emails.';return}try{localStorage.gwMe=1}catch(e){}show(true)}
 sb.auth.getSession().then(({data})=>enter(data.session));
 if(G.google&&!G.local)$('#gg').hidden=false;
 $('#ggb').onclick=async()=>{$('#ge').textContent='';const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname,queryParams:{prompt:'select_account'}}});if(error)$('#ge').textContent='Google sign-in failed: '+error.message};
