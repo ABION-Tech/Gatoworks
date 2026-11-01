@@ -11,6 +11,8 @@ button{font:inherit;cursor:pointer}
 #gate h1{font:800 1.8rem var(--f1);letter-spacing:-.03em;margin:0 0 .2rem}#gate p{margin:0 0 1.2rem;color:#5d5b66}
 #gate input{width:100%;padding:.75rem .9rem;border:1.5px solid #d9d7e0;border-radius:8px;font:inherit;margin-bottom:.6rem}
 #gate button{width:100%;padding:.8rem;border:0;border-radius:99px;background:var(--sun);color:var(--ink);font-weight:700}
+#gg .or{text-align:center;color:#8d8a99;font-size:.82rem;margin:1rem 0 .6rem;display:flex;gap:.7rem;align-items:center}#gg .or::before,#gg .or::after{content:"";flex:1;height:1px;background:#e1dfe8}
+#gate #ggb{background:#fff;border:1.5px solid #d9d7e0;display:flex;align-items:center;justify-content:center;gap:.6rem}#gate #ggb:hover{border-color:var(--ink)}
 #ge{color:var(--bad);font-size:.85rem;margin-top:.6rem}
 /* top bar */
 #app{display:flex;flex-direction:column;height:100%;min-height:0}
@@ -74,7 +76,7 @@ dialog::backdrop{background:#0009}
 @media(max-width:820px){.logo small,#st{display:none}.right .ghost{display:none}}
 </style></head>
 <body>
-<div id="gate"><h1>Gatoworks editor</h1><p>Sign in to edit the website.</p><form id="gf"><input id="em" type="email" placeholder="Email" autocomplete="username" required><input id="pw" type="password" placeholder="Password" autocomplete="current-password" required><button>Sign in</button><div id="ge"></div></form></div>
+<div id="gate"><h1>Gatoworks editor</h1><p>Sign in to edit the website.</p><form id="gf"><input id="em" type="email" placeholder="Email" autocomplete="username" required><input id="pw" type="password" placeholder="Password" autocomplete="current-password" required><button>Sign in</button><div id="ge"></div></form><div id="gg" hidden><div class="or">or</div><button type="button" id="ggb"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.9-10.3 6.9-17.7z"/><path fill="#FBBC05" d="M10.6 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.1 1.4-4.9 2.3-8.2 2.3-6.2 0-11.5-4.1-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>Sign in with Google</button></div></div>
 
 <div id="app" hidden>
  <div class="top">
@@ -132,8 +134,13 @@ addEventListener('beforeunload',e=>{if(pending>0){e.preventDefault();e.returnVal
 
 /* ---------- sign in ---------- */
 function show(on){$('#gate').hidden=on;$('#app').hidden=!on;document.body.style.display=on?'block':'flex';if(on)start()}
-sb.auth.getSession().then(({data})=>show(!!data.session));
-$('#gf').onsubmit=async e=>{e.preventDefault();const{error}=await sb.auth.signInWithPassword({email:$('#em').value,password:$('#pw').value});if(error)$('#ge').textContent='Sign in failed: '+error.message;else show(true)};
+// only listed admins get in (any sign-in method); others are signed straight back out
+async function enter(sess){if(!sess)return show(false);if(G.local)return show(true);
+  const{data,error}=await sb.rpc('is_gw_admin');if(error||data!==true){await sb.auth.signOut();show(false);$('#ge').textContent='This account is not allowed to edit the site. Use one of the admin emails.';return}show(true)}
+sb.auth.getSession().then(({data})=>enter(data.session));
+if(G.google&&!G.local)$('#gg').hidden=false;
+$('#ggb').onclick=async()=>{$('#ge').textContent='';const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname,queryParams:{prompt:'select_account'}}});if(error)$('#ge').textContent='Google sign-in failed: '+error.message};
+$('#gf').onsubmit=async e=>{e.preventDefault();const{error}=await sb.auth.signInWithPassword({email:$('#em').value,password:$('#pw').value});if(error)$('#ge').textContent='Sign in failed: '+error.message;else{const{data}=await sb.auth.getSession();enter(data.session)}};
 $('#out').onclick=async()=>{await sb.auth.signOut();show(false)};
 
 /* ---------- shell ---------- */
