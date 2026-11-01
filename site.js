@@ -22,10 +22,41 @@ A('.chip').forEach(c=>c.onclick=()=>{A('.chip').forEach(x=>x.classList.toggle('o
 const cf=Q('#cf');if(cf)cf.onsubmit=e=>{e.preventDefault();const d=new FormData(cf);location.href='mailto:gatoworks@yahoo.com?subject='+encodeURIComponent('Enquiry from '+d.get('name'))+'&body='+encodeURIComponent(d.get('msg')+'\n\n'+d.get('name')+' ('+d.get('email')+')')};
 // newsletter
 const nl=Q('#nl');if(nl)nl.onsubmit=e=>{e.preventDefault();const m=Q('#nlm');fetch(NL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'email='+encodeURIComponent(nl.email.value)}).then(()=>{m.textContent='Thank you, you are on the list.';nl.reset()}).catch(()=>m.textContent='Could not sign up. Please try again.')};
-// admin-controlled image swaps (images.json + Supabase), keyed by original src
+// brand colours: saved by the admin (site_text rows "theme.<scope>.<var>"), cached so pages paint with them straight away
+const TV=['--sun','--ink','--wall','--mute','--txt','--lite','--f1','--f2','--fs'],HEX=/^#[0-9a-f]{6}$/i;
+const scope=(document.body.className.match(/\bt-(\w+)/)||[])[1]||'site';
+const FONTS={'--f1':['Bricolage Grotesque','Playfair Display','Fraunces','Montserrat','Poppins','Outfit','Sora','Syne','Raleway','Archivo'],'--f2':['Hanken Grotesk','Inter','DM Sans','Nunito','Work Sans','Source Sans 3','Lora','Merriweather','Lato']};
+const loadFont=(v,n)=>{if(/^(Bricolage Grotesque|Hanken Grotesk)$/.test(n))return;const id='gwf-'+n.replace(/\W/g,'');if(document.getElementById(id))return;
+ const l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+n.replace(/ /g,'+')+':'+(v==='--f1'?'wght@800':/^(Merriweather|Lato)$/.test(n)?'wght@400;700':'wght@400;600;700')+'&display=swap';document.head.append(l)};
+const cssVal=(v,x)=>{x=String(x||'');
+ if(v==='--f1'||v==='--f2')return FONTS[v].includes(x)?(loadFont(v,x),"'"+x+"',system-ui,sans-serif"):null;
+ if(v==='--fs')return /^\d{2,3}$/.test(x)&&+x>=80&&+x<=130?x+'%':null;
+ return HEX.test(x)?x:null};
+const paint=(T)=>{[['site',document.documentElement],[scope,document.body]].forEach(([sc,el],n)=>{if(n&&sc==='site')return;TV.forEach(v=>{if(sc!=='site'&&/^--(f1|f2|fs)$/.test(v))return;const c=cssVal(v,T&&T[sc]&&T[sc][v]);c?el.style.setProperty(v,c):el.style.removeProperty(v)})});
+ const m=document.querySelector('meta[name=theme-color]'),i=T&&((T[scope]||{})['--ink']||(T.site||{})['--ink']);if(m&&i)m.content=i};
+const readTheme=t=>{const T={};Object.keys(t||{}).forEach(k=>{const m=k.match(/^theme\.(\w+)\.(--\w+)$/);if(m){(T[m[1]]=T[m[1]]||{})[m[2]]=t[k]}});return T};
+try{paint(JSON.parse(localStorage.gwTheme||'{}'))}catch(e){}
+// admin-controlled content: images (images.json + Supabase site_images, keyed by original src) and text (Supabase site_text, keyed by data-e)
 const key=s=>{try{return new URL(s,location.href).pathname.replace(/^\//,'')}catch(e){return s}};
 const G=window.GW||{};
-const rem=G.url?fetch(G.url+'/rest/v1/site_images?select=key,url',{headers:{apikey:G.key}}).then(r=>r.ok?r.json():[]).then(a=>Object.fromEntries(a.map(x=>[x.key,x.url]))).catch(()=>({})):Promise.resolve({});
-Promise.all([fetch('images.json').then(r=>r.ok?r.json():{}).catch(()=>({})),rem]).then(([m,d])=>{const M={...m,...d};A('img').forEach(i=>{const k=key(i.getAttribute('src')||'');if(M[k])i.src=M[k]})});
+A('img').forEach(i=>{i.dataset.k=key(i.getAttribute('src')||'')});
+// minimal allow-list sanitiser for admin-written text (also used by the editor)
+const OK=new Set(['B','I','EM','STRONG','U','BR','A','SMALL','SPAN','SUP','SUB','S','MARK']);
+G.clean=h=>{const d=new DOMParser().parseFromString('<body>'+h,'text/html').body;
+ (function w(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3)return;if(c.nodeType!==1){c.remove();return}w(c);
+  const t=c.tagName;if(!OK.has(t)||(t==='SPAN'&&!c.getAttribute('class'))){c.replaceWith(...c.childNodes);return}
+  [...c.attributes].forEach(at=>{const n=at.name;if(n==='class')return;if(t==='A'&&n==='href'&&/^(https?:|mailto:|tel:|#|[\w.\-\/]+(\?|#|$))/i.test(at.value.trim()))return;if(t==='A'&&n==='target'&&at.value==='_blank')return;if(t==='A'&&n==='rel')return;c.removeAttribute(n)})})})(d);
+ while(d.lastChild&&d.lastChild.nodeName==='BR')d.lastChild.remove();
+ return d.innerHTML.replace(/&nbsp;/g,' ').replace(/\u00a0/g,' ')};
+const LDB=()=>{try{return JSON.parse(localStorage.gwLocalDB||'{}')}catch(e){return{}}};
+const get=t=>G.local?Promise.resolve(Object.entries(LDB()[t.split('?')[0]]||{}).map(([k,v])=>t.indexOf('site_text')===0?{key:k,html:v}:{key:k,url:v})):G.url?fetch(G.url+'/rest/v1/'+t,{headers:{apikey:G.key}}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
+const rem=get('site_images?select=key,url').then(a=>Object.fromEntries((a||[]).map(x=>[x.key,x.url])));
+const txt=get('site_text?select=key,html').then(a=>a&&Object.fromEntries(a.map(x=>[x.key,x.html])));
+G.ready=Promise.all([fetch('images.json').then(r=>r.ok?r.json():{}).catch(()=>({})),rem,txt]).then(([m,d,t])=>{
+ const M={...m,...d};A('img').forEach(i=>{const k=i.dataset.k;if(M[k])i.src=M[k]});
+ if(t){A('[data-e]').forEach(e=>{const h=t[e.dataset.e];if(h!=null)e.innerHTML=G.clean(h)});const T=readTheme(t);paint(T);try{localStorage.gwTheme=JSON.stringify(T)}catch(e){}}
+ return{images:M,text:t||{}}});
+G.paint=paint;G.readTheme=readTheme;G.cssVal=cssVal;G.FONTS=FONTS;
+window.GW=G;
 A('img[loading=lazy]').forEach(i=>{if(!i.complete){i.classList.add('fade');i.addEventListener('load',()=>i.classList.add('ok'));i.addEventListener('error',()=>i.classList.add('ok'))}});
 })();

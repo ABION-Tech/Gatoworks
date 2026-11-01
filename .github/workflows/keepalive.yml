@@ -1,13 +1,24 @@
-# Free keep-alive: pings Supabase twice a week so the free project never pauses from inactivity.
+# Keeps the free Supabase project awake (free projects pause after 7 days with no activity).
+# Runs twice a week so one delayed or failed run never lets 7 days pass. Retries on network blips.
 name: keep-supabase-awake
 on:
   schedule:
-    - cron: '0 6 * * 1,4'
+    - cron: '17 7 * * 1,4'   # Mon + Thu, 08:17 Lagos (GitHub often runs scheduled jobs late)
   workflow_dispatch:
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - run: |
-          curl -fsS "https://pfxlsgmohiziohfpmxhb.supabase.co/rest/v1/site_images?select=key&limit=1" \
-            -H "apikey: sb_publishable_KNSa7tC2O7FrDlX560_6TQ_5-IblBMo"
+      - name: Ping Supabase
+        run: |
+          URL="https://pfxlsgmohiziohfpmxhb.supabase.co/rest/v1/site_images?select=key&limit=1"
+          KEY="sb_publishable_KNSa7tC2O7FrDlX560_6TQ_5-IblBMo"
+          for i in 1 2 3 4 5; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$URL" -H "apikey: $KEY") || code=000
+            echo "attempt $i: HTTP $code"
+            [ "$code" = 200 ] && exit 0
+            sleep $((i * 30))
+          done
+          echo "::error::Supabase did not answer after 5 tries. If it says the host cannot be found, the project is probably paused: open supabase.com/dashboard and press Restore."
+          exit 1
